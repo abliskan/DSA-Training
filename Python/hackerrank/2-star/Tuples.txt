@@ -1,0 +1,16 @@
+Task
+Given an integer, n , and n space-separated integers as input, create a tuple, t , of those  integers. 
+Then compute and print the result of hash(t)
+
+note: hash() is one of the functions in the __builtins__ module, so it need not be imported.
+
+Input format 
+The first line contains an integer, n, denoting the number of elements in the tuple.
+The second line contains n space-separted integers describing the elements in tuple.
+
+Sample Input 0
+2
+1 2
+
+Sample Ouput 0
+371308163193441656
