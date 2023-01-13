@@ -1,6 +1,5 @@
 print("******************* Linked List")
 
-
 # Case num-1
 # let's create the nodes first
 # Node class
