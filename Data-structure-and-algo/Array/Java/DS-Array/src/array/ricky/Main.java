@@ -21,7 +21,6 @@ public class Main {
         System.out.println("Student data in student arr 1: ");
         arr[1].display();
 
-
         // Array - Append
         int i;
 
@@ -46,7 +45,6 @@ public class Main {
         // Array - Insertion
         int dumpInt1, dumpInt2, pos;
 
-        // Get user input to intialize array size
         Scanner s = new Scanner(System.in);
         System.out.print("Enter no. of elements you want in array:");
         dumpInt1 = s.nextInt(); // .nextInt = 	it is used to scan the next token of the input as an integer
