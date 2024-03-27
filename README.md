@@ -1,6 +1,6 @@
 # DSA-Training
 
 * [Python](#python)
-* [Java](#java)
+* [Golang](#golang)
 * [SQL](#sql)
 * [Problem Solving](#problem-solving)
