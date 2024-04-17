@@ -23,6 +23,6 @@ def iterative_linear_search(arr, x):
 array = [2, 5, 8, 10, 16, 22, 25]
 # array = [8, 10, 16, 22, 25, 32]
 target1 = 10 # part of element in array
-target2 = 40 # outside element in array
+target2 = 22 # outside element in array
 search_target = iterative_linear_search(array, target2)
 print(search_target)

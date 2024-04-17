@@ -1,9 +1,6 @@
 def recursive_binary_search(arr, first_index, last_index, target):
     if last_index >= first_index:
         middle_index = first_index + last_index - 1 // 2
-        # middle_element = arr[middle_index]
-        # arr_index = len(arr)
-        # print(f"Current middle element {middle_element} occurs in position {middle_index}")
         if target > arr[middle_index]:
             recursive_binary_search(arr, middle_index + 1, last_index, target)
         elif target < arr[middle_index]:
