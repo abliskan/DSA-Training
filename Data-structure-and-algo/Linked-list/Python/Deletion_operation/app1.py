@@ -16,7 +16,7 @@ class LinkedList:
         self.head = new_node
 
     # Delete at first index
-    def delete_node(self):
+    def delete_at_first(self):
         # if linked list is empty
         if self.head is None:
             print("Empty,nothing to remove")
@@ -41,5 +41,5 @@ llist.insert_at_beginning(5)
 llist.insert_at_beginning(6)
 llist.display_list()
 print("\nLinked List after deletion at first:")
-llist.delete_node()
+llist.delete_at_first()
 llist.display_list()
