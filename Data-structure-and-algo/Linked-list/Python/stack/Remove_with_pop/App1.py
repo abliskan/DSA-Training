@@ -16,6 +16,18 @@ class LinkedListStack:
             new_node.next = self.head
             self.head = new_node
 
+    def pop(self):
+        if self.head is None:
+            print("Linked list is empty")
+            return None
+        else:
+            # Removes the head node and makes
+            # the preceding one the new head
+            temp_node = self.head
+            self.head = self.head.next
+            temp_node.next = None
+            return temp_node.data
+
     def display_list(self):
         iteration_node = self.head
         if self.head is None:
@@ -39,4 +51,7 @@ if __name__ == '__main__':
     llist.push(38)
     llist.push(27)
     print("Linked list original: ")
+    llist.display_list()
+    print("\nLinked List after deletion at last:")
+    llist.pop()
     llist.display_list()
