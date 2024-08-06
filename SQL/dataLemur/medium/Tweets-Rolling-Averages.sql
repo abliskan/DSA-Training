@@ -1,3 +1,4 @@
+-- Sample num-1 | using window function --
 SELECT
     user_id,
     tweet_date,
