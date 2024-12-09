@@ -9,3 +9,10 @@ Diffulty: level -> easy
 | Question                | Answer                 |
 |-------------------------|------------------------:|
 |[Laptop vs. Mobile Viewership](https://datalemur.com/questions/sql-histogram-tweets) | [Solution](https://github.com/abliskan/DSA-Training/blob/main/SQL/dataLemur/easy/Histogram-of-Tweets.sql) |
+
+<br>
+
+Diffulty: level -> medium
+| Question                | Answer                 |
+|-------------------------|------------------------:|
+|[Second Highest Salary](https://datalemur.com/questions/sql-second-highest-salary) | [Solution](https://github.com/abliskan/DSA-Training/blob/main/SQL/dataLemur/medium/Second-Highest-Salary.sql) |
