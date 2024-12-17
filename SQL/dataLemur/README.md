@@ -13,6 +13,7 @@ Diffulty: level -> easy
 |[Page With No Likes](https://datalemur.com/questions/sql-page-with-no-likes) | [Solution](https://github.com/abliskan/DSA-Training/blob/main/SQL/dataLemur/easy/Page-With-No-Likes.sql) |
 |[Average Post Hiatus](https://datalemur.com/questions/sql-average-post-hiatus-1) | [Solution](https://github.com/abliskan/DSA-Training/blob/main/SQL/dataLemur/easy/Average-Post-Hiatus.sql) |
 |[Teams Power Users](https://datalemur.com/questions/teams-power-users) | [Solution](https://github.com/abliskan/DSA-Training/blob/main/SQL/dataLemur/easy/Teams-Power-User.sql) |
+|[Laptop vs. Mobile Viewership](https://datalemur.com/questions/laptop-mobile-viewership) | [Solution](https://github.com/abliskan/DSA-Training/blob/main/SQL/dataLemur/easy/Labtop-vs-Mobile-Viewership.sql) |
 
 <br>
 
