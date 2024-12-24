@@ -1,4 +1,4 @@
--- Sample num-1 | Using CTE--
+-- Sample num-1 | common SQL --
 SELECT
     p.page_id
 FROM
