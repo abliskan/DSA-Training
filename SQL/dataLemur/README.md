@@ -13,7 +13,11 @@ Diffulty: level -> easy
 |[Page With No Likes](https://datalemur.com/questions/sql-page-with-no-likes) | [Solution](https://github.com/abliskan/DSA-Training/blob/main/SQL/dataLemur/easy/Page-With-No-Likes.sql) |
 |[Average Post Hiatus](https://datalemur.com/questions/sql-average-post-hiatus-1) | [Solution](https://github.com/abliskan/DSA-Training/blob/main/SQL/dataLemur/easy/Average-Post-Hiatus.sql) |
 |[Teams Power Users](https://datalemur.com/questions/teams-power-users) | [Solution](https://github.com/abliskan/DSA-Training/blob/main/SQL/dataLemur/easy/Teams-Power-User.sql) |
-|[Laptop vs. Mobile Viewership](https://datalemur.com/questions/laptop-mobile-viewership) | [Solution](https://github.com/abliskan/DSA-Training/blob/main/SQL/dataLemur/easy/Labtop-vs-Mobile-Viewership.sql) |
+|[App-Click-Through-Rate(CTR)](https://datalemur.com/questions/click-through-rate) | [Solution](https://github.com/abliskan/DSA-Training/blob/main/SQL/dataLemur/easy/App-Click-Through-Rate(CTR).sql) |
+|[Average-Review-Ratings](https://datalemur.com/questions/sql-avg-review-ratings) | [Solution](https://github.com/abliskan/DSA-Training/blob/main/SQL/dataLemur/easy/Average-Review-Ratings.sql) |
+|[Cities-with-Completed-Trades](https://datalemur.com/questions/completed-trades) | [Solution](https://github.com/abliskan/DSA-Training/blob/main/SQL/dataLemur/easy/Cities-with-Completed-Trades.sql) |
+|[Histogram-of-Tweets](https://datalemur.com/questions/sql-histogram-tweets) | [Solution](https://github.com/abliskan/DSA-Training/blob/main/SQL/dataLemur/easy/Histogram-of-Tweets.sql) |
+|[Second-Day-Confirmation](https://datalemur.com/questions/second-day-confirmation) | [Solution](https://github.com/abliskan/DSA-Training/blob/main/SQL/dataLemur/easy/Second-Day-Confirmation.sql) |
 
 <br>
 
