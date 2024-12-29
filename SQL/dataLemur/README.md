@@ -26,3 +26,7 @@ Diffulty: level -> medium
 |-------------------------|------------------------:|
 |[Second Highest Salary](https://datalemur.com/questions/sql-second-highest-salary) | [Solution](https://github.com/abliskan/DSA-Training/blob/main/SQL/dataLemur/medium/Second-Highest-Salary.sql) |
 |[Tweets' Rolling Averages](https://datalemur.com/questions/rolling-average-tweets) | [Solution](https://github.com/abliskan/DSA-Training/blob/main/SQL/dataLemur/medium/Tweets-Rolling-Averages.sql) |
+|[Top Three Salaries](https://datalemur.com/questions/sql-top-three-salaries) | [Solution](https://github.com/abliskan/DSA-Training/blob/main/SQL/dataLemur/medium/Top-Three-Salaries.sql) |
+|[Top 5 Artists](https://datalemur.com/questions/top-fans-rank) | [Solution](https://github.com/abliskan/DSA-Training/blob/main/SQL/dataLemur/medium/Top-5-Artists.sql) |
+|[Signup Activation Rate](https://datalemur.com/questions/signup-confirmation-rate) | [Solution](https://github.com/abliskan/DSA-Training/blob/main/SQL/dataLemur/medium/Signup-Activation-Rate.sql) |
+|[Histogram of Users and Purchases](https://datalemur.com/questions/histogram-users-purchases) | [Solution](https://github.com/abliskan/DSA-Training/blob/main/SQL/dataLemur/medium/Histogram-of-Users-and-Purchases.sql) |
