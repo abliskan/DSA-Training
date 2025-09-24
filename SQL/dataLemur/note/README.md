@@ -44,7 +44,7 @@ DROP VIEW per_kasir;
 
 ### Store Procedure
 The following SQL create a stored procedure:
--- DROP PROCEDURE public.per_kasir_cabang();
+```
 CREATE OR REPLACE PROCEDURE public.per_kasir_cabang(IN cabang VARCHAR(16))
 	LANGUAGE sql
 AS $procedure$
