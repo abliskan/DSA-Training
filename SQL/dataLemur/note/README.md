@@ -20,7 +20,9 @@ VALUES
    (5, 'Cabang-043', '043-044', 14804.85, 145918.60);
 ```
 
-## View Statement
+## Data Data Manipulation Language (DML)
+
+### View Statement
 The following SQL creates a view from StoreTransactions:
 ```
 CREATE VIEW per_kasir AS
@@ -38,4 +40,31 @@ WHERE ID_Cabang = 'Cabang-039';
 The following SQL remove the per_kasir view:
 ```
 DROP VIEW per_kasir;
+```
+
+### Store Procedure
+The following SQL create a stored procedure:
+-- DROP PROCEDURE public.per_kasir_cabang();
+CREATE OR REPLACE PROCEDURE public.per_kasir_cabang(IN cabang VARCHAR(16))
+	LANGUAGE sql
+AS $procedure$
+	BEGIN
+        SELECT ID_Cabang,
+               ID_Kasir,
+               COUNT(*) AS total_transaksi
+        FROM public.StoreTransactions
+        WHERE ID_Cabang = cabang
+        GROUP BY 1,2;      
+	END;
+$procedure$
+```
+Execute a Stored Procedure
+```
+CALL public.per_kasir_cabang('Cabang-039');
+```
+We do the select query
+```
+SELECT *
+FROM information_schema.parameters
+WHERE SPESIFIC_NAME = 'per_kasir_cabang';
 ```
