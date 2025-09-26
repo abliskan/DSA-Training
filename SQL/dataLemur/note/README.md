@@ -146,7 +146,7 @@ Expected explain with analyze query result:
 ```
 
 ### Index
-To create a unique B-tree index on the column title in the table films (duplicate values are not allowed)
+To create a index on the column title in the table films (duplicate values are not allowed)
 ```
 CREATE UNIQUE INDEX title_idx ON films(title);
 ```
