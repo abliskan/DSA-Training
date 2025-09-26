@@ -144,3 +144,18 @@ Expected explain with analyze query result:
 | Planning Time: 1.673 ms                                                                                                                                           |
 | Execution Time: 3.096 ms                                                                                                                                          |
 ```
+
+### Index
+To create a unique B-tree index on the column title in the table films (duplicate values are not allowed)
+```
+CREATE UNIQUE INDEX title_idx ON films(title);
+```
+Show all the index 
+```
+SHOW INDEX FROM films;
+```
+This command will remove the index title_idx
+```
+ALTER TABLE films DROP INDEX title_idx:
+```
+note: This use the most common type and suitable for most scenarios -> B Tree Index
