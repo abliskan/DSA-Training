@@ -156,6 +156,72 @@ SHOW INDEX FROM films;
 ```
 This command will remove the index title_idx
 ```
-ALTER TABLE films DROP INDEX title_idx:
+ALTER TABLE films DROP INDEX title_idx;
 ```
-note: This use the most common type and suitable for most scenarios -> B Tree Index
+
+### JOIN
+- Create new table and insert data
+```
+CREATE TABLE ms_cabang (
+    Id_cabang INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    Kode_cabang VARCHAR(255),
+    Nama_cabang VARCHAR(255),
+    Kode_kota VARCHAR(255)
+);
+ #2
+CREATE TABLE ms_produk (
+    Id_produk INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    Kode_produk VARCHAR(255),
+    Nama_produk VARCHAR(255),
+    Unit INT,
+    Kode_kesatuan VARCHAR(255)
+);
+ #3 Join to table #1
+CREATE TABLE ms_karyawan (
+    Kode_cabang VARCHAR(255),
+    Kode_kayawan VARCHAR(255),
+    Nama_depan VARCHAR(255),
+    Nama_belakang VARCHAR(255),
+    Jenis_kelamin VARCHAR(255)
+);
+ #4 Join to table #1 and #3
+CREATE TABLE tr_penjualan (
+    Kode_transaksi INT,
+    Tgl_transaksi VARCHAR(255),
+    Kode_cabang VARCHAR(255),
+    Kode_kasir VARCHAR(255),
+    Kode_item VARCHAR(255),
+    Kode_produk VARCHAR(255),
+    Jumlah_pembelian INT
+);
+```
+
+- INNER JOIN: Use when you only care about records that exist in both tables.
+```
+SELECT trp.Kode_transaksi,
+       trp.Kode_item,
+       msc.Nama_cabang,
+       msc.Kode_kota
+FROM ms_cabang msc
+JOIN tr_penjualan trp
+	ON trp.Kode_cabang = msc.Kode_cabang
+```
+
+- LEFT JOIN: Use when you want everything from the first table, even if no match in the second.
+```
+SELECT Kode_karyawan,
+       Nama_depan,
+       Jenis_kelamin
+FROM ms_karyawan msk
+LEFT JOIN ms_cabang msc
+	ON msc.Kode_cabang = msk.Kode_cabang
+```
+
+- FULL JOIN: Use when you want to include everything from both tables.
+```
+SELECT *,
+      COUNT (*) as jumlah_transaksi
+FROM ms_produk msp
+FULL JOIN tr_penjualan trp
+	ON trp.Kode_produk = msp.Kode_produk
+```
