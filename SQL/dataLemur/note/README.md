@@ -225,3 +225,69 @@ FROM ms_produk msp
 FULL JOIN tr_penjualan trp
 	ON trp.Kode_produk = msp.Kode_produk
 ```
+
+- JOIN MULTIPLE TABLE (3)
+```
+SELECT trp.Kode_transaksi,
+ 	   trp.Kode_kasir,
+       trp.Kode_produk,
+       trp.Kode_cabang,
+       msp.Unit
+FROM ms_cabang msc
+	 JOIN tr_penjualan trp
+	 	ON trp.Kode_cabang = msc.Kode_cabang
+	 LEFT JOIN ms_produk msp
+	    ON msp.Kode_produk = trp.Kode_produk 
+WHERE trp.Kode_transaksi <= 20;
+```
+
+## Subquery
+- Subquery - Column Subquery
+```
+SELECT *
+FROM tr_penjualan trp
+WHERE jumlah_pembelian IN (
+	SELECT max(jumlah_pembelian) 
+	FROM tr_penjualan tp
+)
+LIMIT 10;
+```
+
+- Subquery - Derived Subquery
+```
+SELECT AVG(tp.jumlah_transaksi) AS AVG_jumlah_transaksi
+FROM (
+	SELECT Kode_cabang,
+	       COUNT(*) AS jumlah_transaksi
+	FROM tr_penjualan
+	GROUP BY 1
+) AS tp;
+```
+
+- Lateral Subquery
+```
+
+INSERT INTO orders (Order_date, Customer_id)
+VALUES 
+   ('2025-03-01 10:00:00', 1),
+   ('2025-03-05 12:00:00', 1),
+   ('2025-03-10 15:00:00', 2),
+   ('2025-03-08 14:00:00', 3),
+   ('2025-03-12 16:00:00', 3);
+
+-- Solution using LATERAL Join
+SELECT 
+   c.Cust_id AS customer_id,
+   c.Name AS customer_name,
+   o.Order_id AS latest_order_id,
+   o.Order_date AS latest_order_date
+FROM 
+   customers AS c
+JOIN LATERAL (
+   SELECT *
+   FROM orders AS o
+   WHERE o.Customer_id = c.Cust_id
+   ORDER BY o.Order_date DESC
+   LIMIT 1
+) o ON true;
+```
