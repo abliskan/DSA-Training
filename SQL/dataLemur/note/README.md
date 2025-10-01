@@ -266,6 +266,22 @@ FROM (
 
 - Lateral Subquery
 ```
+CREATE TABLE customers (
+   Cust_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+   Name VARCHAR(100)
+);
+
+INSERT INTO customers (name)
+VALUES 
+   ('Md. Anower Hossain'),
+   ('Md. Amir Hossain'),
+   ('Afjoza Sultana');
+
+CREATE TABLE orders (
+   Order_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+   Order_date TIMESTAMP,
+   Customer_id INT CONSTRAINT fk_customers REFERENCES customers(Cust_id)
+);
 
 INSERT INTO orders (Order_date, Customer_id)
 VALUES 
@@ -290,4 +306,74 @@ JOIN LATERAL (
    ORDER BY o.Order_date DESC
    LIMIT 1
 ) o ON true;
+```
+
+## CTE
+- Refer to the CTE in a SELECT statement by calling the CTE name defined
+```
+WITH total_per_cabang AS (
+		SELECT Kode_cabang,
+	           count(*) AS jumlah_transaksi
+		FROM tr_penjualan
+		GROUP BY 1
+)
+SELECT AVG(jumlah_transaksi) AS avg_jumlah_transaksi
+FROM total_per_cabang;
+);
+```
+
+- Wrap JOIN with CTE
+```
+WITH OrderDetails AS (
+    SELECT o.OrderID, c.CustomerName, p.Price, o.Quantity, o.OrderDate
+    FROM Orders o
+    JOIN Customers c ON o.CustomerID = c.CustomerID
+    JOIN Products p ON o.ProductID = p.ProductID
+    WHERE YEAR(o.OrderDate) = 2024
+)
+SELECT CustomerName, SUM(Price * Quantity) AS TotalRevenue
+FROM OrderDetails
+GROUP BY CustomerName
+HAVING SUM(Price * Quantity) > 1000;
+```
+
+- Multiple CTEs in a single query, which allows for complex transformations and calculations
+```
+WITH ProductSales AS (
+    -- Step 1: Calculate total sales for each product
+    SELECT ProductID, SUM(SalesAmount) AS TotalSales
+    FROM Sales
+    GROUP BY ProductID
+),
+AverageSales AS (
+    -- Step 2: Calculate the average total sales across all products
+    SELECT AVG(TotalSales) AS AverageTotalSales
+    FROM ProductSales
+),
+HighSalesProducts AS (
+    -- Step 3: Filter products with above-average total sales
+    SELECT ProductID, TotalSales
+    FROM ProductSales
+    WHERE TotalSales > (SELECT AverageTotalSales FROM AverageSales)
+)
+-- Step 4: Rank the high-sales products
+SELECT ProductID, TotalSales, RANK() OVER (ORDER BY TotalSales DESC) AS SalesRank
+FROM HighSalesProducts;
+```
+
+- Recursive CTE allowing the query to perform repeated operations
+```
+WITH EmployeeHierarchy AS (
+    -- Anchor member: select the top-level manager
+    SELECT EmployeeID, EmployeeName, ManagerID, 1 AS Level
+    FROM Employees
+    WHERE EmployeeID = 1  -- Starting with the top-level manager
+    UNION ALL
+    -- Recursive member: find employees who report to the current managers
+    SELECT e.EmployeeID, e.EmployeeName, e.ManagerID, eh.Level + 1
+    FROM Employees e
+    INNER JOIN EmployeeHierarchy eh ON e.ManagerID = eh.EmployeeID
+)
+SELECT EmployeeID, EmployeeName, Level
+FROM EmployeeHierarchy;
 ```
