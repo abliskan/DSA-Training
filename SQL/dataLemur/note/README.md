@@ -377,3 +377,30 @@ WITH EmployeeHierarchy AS (
 SELECT EmployeeID, EmployeeName, Level
 FROM EmployeeHierarchy;
 ```
+## Window Functions
+- Aggregate Window Functions
+```
+WITH total_per_cabang AS (
+	SELECT Kode_cabang,
+		   COUNT(*) AS jumlah_transaksi
+	FROM tr_penjualan
+	GROUP 1
+)
+SELECT *,
+       AVG(jumlah_transaksi) OVER() AS avg_transaksi
+FROM total_per_cabang;
+```
+
+- Ranking Window Functions
+```
+WITH total_per_cabang AS (
+	SELECT CAST(Tgl_transaksi AS date) AS Bulan,
+	       Kode_kasir,
+		   COUNT(*) AS jumlah_transaksi
+	FROM tr_penjualan
+	GROUP BY 1, 2
+)
+SELECT *,
+      NTILE(1) OVER(PARTITION BY Kode_kasir ORDER BY Bulan)
+FROM total_per_cabang;
+```
