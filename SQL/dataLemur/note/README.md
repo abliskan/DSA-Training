@@ -392,6 +392,22 @@ FROM total_per_cabang;
 ```
 
 - Ranking Window Functions
+1. Type1,2,3 (ROW_NUM, RANK, DENSE_RANK)
+```
+WITH total_per_cabang AS (
+	SELECT CAST(Tgl_transaksi AS date) AS Bulan,
+	       COUNT(*) AS jumlah_transaksi
+	FROM tr_penjualan
+	GROUP BY 1
+)
+SELECT *,
+      ROW_NUMBER() OVER(ORDER BY jumlah_transaksi DESC) AS row_num_transaksi,
+	  RANK() OVER(ORDER BY jumlah_transaksi DESC) AS rank_transaksi,
+	  DENSE_RANK() OVER(ORDER BY jumlah_transaksi DESC) AS dense_rank_transaksi
+FROM total_per_cabang;
+```
+
+2. Type4 (NTILE)
 ```
 WITH total_per_cabang AS (
 	SELECT CAST(Tgl_transaksi AS date) AS Bulan,
@@ -404,3 +420,5 @@ SELECT *,
       NTILE(1) OVER(PARTITION BY Kode_kasir ORDER BY Bulan)
 FROM total_per_cabang;
 ```
+
+- Value Window Functions
