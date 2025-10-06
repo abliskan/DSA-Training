@@ -422,3 +422,91 @@ FROM total_per_cabang;
 ```
 
 - Value Window Functions
+```
+CREATE TABLE product_groups (
+    group_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    group_name VARCHAR(100)
+);
+
+INSERT INTO product_groups (group_name)
+VALUES 
+    ('Microsoft Lumia'),
+    ('HTC One'),
+    ('Nexus'),
+    ('Iphone'),
+    ('HP Elite');
+
+CREATE TABLE random_product (
+	R_product_id INT PRIMARY KEY,
+	Product_name VARCHAR(100),
+	Price NUMERIC(7,2),
+	Group_id INT CONSTRAINT fk_product_groups REFERENCES product_groups(group_id)
+);
+INSERT INTO random_product (R_product_id, Product_name, Price, Group_id)
+VALUES 
+    (10, 'Nexus Kindle Fire', 14534.50, 3),
+    (1, 'Lumia X Pro', 14664.40, 1),
+    (11, 'Nexus F7', 14397.75, 3),
+    (6, 'HTC One R Plus', 14626.50, 2),
+    (4, 'Lumia X LITE', 12000.10, 1);
+```
+
+1. FIRST_VALUE()
+```
+SELECT R_product_id,
+       Product_name,
+       Group_id,
+       Price,
+       FIRST_VALUE(product_name)
+	   OVER(
+	   	ORDER BY price
+       ) lowest_price
+FROM random_product;
+```
+
+2. NTH_VALUE()
+```
+SELECT R_product_id,
+       Product_name,
+       Price,
+       NTH_VALUE(product_name, 2)
+	   OVER(
+	   	ORDER BY price DESC
+	   	RANGE BETWEEN 
+	   		UNBOUNDED PRECEDING AND
+	   		UNBOUNDED FOLLOWING
+       )
+FROM random_product;
+```
+
+3. LAG()
+```
+SELECT year,
+  	   amount,
+  	   LAG(amount, 1) 
+  	   OVER (
+    	ORDER BY year
+  	   ) previous_year_sales
+FROM sales
+WHERE group_id = 1;
+```
+
+4. LEAD()
+```
+ITH cte AS (
+	SELECT
+		year,
+		SUM(amount) amount
+	FROM sales
+	GROUP BY year
+	ORDER BY year
+)
+SELECT
+	year,
+	amount,
+	LEAD(amount,1) OVER (
+		ORDER BY year
+	) next_year_sales
+FROM
+	cte;
+```
