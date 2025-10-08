@@ -261,16 +261,16 @@ VALUES
     (1004, 'Data Engineering with Google Cloud Platform', 'Adi Wijaya', 'Non-Fiction', 04.7, 29800.40),
     (1005, 'Regretting You', 'Colleen Hoover', 'Fiction', 04.1, 20550.40);
 
-SELECT o.order_id, g.book_title, g.author, g.genre
+SELECT o.Order_id, g.Book_title, g.Author_name, g.Genre
 FROM orders AS o
 INNER JOIN goodreads AS g
-  ON o.book_id = g.book_id
+  ON o.Book_id = g.Book_id
 UNION ALL
-SELECT o.order_id, g.book_title, g.author, g.genre
+SELECT o.Order_id, g.Book_title, g.Author_name, g.Genre
 FROM goodreads AS g
 INNER JOIN orders AS o
-  ON o.book_id = g.book_id
-ORDER BY g.book_id;
+  ON o.Book_id = g.Book_id
+ORDER BY g.Book_id;
 ```
 
 ## Subquery
