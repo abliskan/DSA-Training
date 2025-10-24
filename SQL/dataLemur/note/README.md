@@ -553,3 +553,24 @@ SELECT
 FROM
 	cte;
 ```
+
+## Date / time function
+1. CURRENT_DATE()
+
+2. CURRENT_TIME()
+
+3. CURRENT_TIMEESTAMP()
+
+4. EXTRACT()
+
+5. DATE_ADD()
+
+6. DATE_DIFF()
+
+7. DATE_FORMAT()
+
+8. YEAR(), MONTH(), DAY()
+
+9. TIMESTAMPDIFF()
+
+10. STR_TO_DATE()
