@@ -555,7 +555,28 @@ FROM
 ```
 
 ## Date / time function
+```
+CREATE TABLE messages (
+    message_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    sender_id INT,
+    receiver_id INT,
+    content varchar (100),
+    sent_date TIMESTAMPTZ 
+);
+
+INSERT INTO messages (sender_id, receiver_id, content, sent_date)
+VALUES 
+    (2520, 6987, 'Send this out now!', 	'08/16/2021 00:00:00'),
+    (3601, 4500, 'Get on the call', 	'08/16/2022 00:00:00'),
+    (2310, 4500, 'What's the status on this?', 	'07/10/2022 00:00:00'),
+    (3601, 8752, 'Let's take this offline', 	'06/14/2022 00:30:00'),
+    (2520, 8520, 'Maybe it was done by the automation process.', 	'08/19/2022 00:00:00'),
+```
+
 1. CURRENT_DATE()
+```
+
+```
 
 2. CURRENT_TIME()
 
