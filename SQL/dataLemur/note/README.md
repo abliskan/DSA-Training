@@ -573,25 +573,42 @@ VALUES
     (2520, 8520, 'Maybe it was done by the automation process.', 	'08/19/2022 00:00:00'),
 ```
 
-1. CURRENT_DATE()
+1. CURRENT_DATE(), CURRENT_TIME(), 
+```
+SELECT 
+  message_id,
+  sent_date,
+  CURRENT_DATE AS current_date,
+  CURRENT_TIME AS current_time,
+  CURRENT_TIMESTAMP AS current_timestamp
+FROM messages
+LIMIT 3;
 ```
 
+2. EXTRACT()
+```
+-- Extract the day from a timestamp
+SELECT EXTRACT(DAY FROM TIMESTAMP '2016-12-31 13:30:15') d;
+-- Extract the month from a timestamp
+SELECT EXTRACT(MONTH FROM TIMESTAMP '2016-12-31 13:30:15') m;
+-- Extract the year from a timestamp
+SELECT EXTRACT(YEAR FROM TIMESTAMP '2016-12-31 13:30:15') y;
+-- Extract the second from a timestamp
+SELECT EXTRACT(SECOND FROM TIMESTAMP '2016-12-31 13:30:15') sec;
+-- Extract the minute from a timestamp
+SELECT EXTRACT(MINUTE FROM TIMESTAMP '2016-12-31 13:30:15') min;
+-- Extract the hour from a timestamp
+SELECT EXTRACT(HOUR FROM TIMESTAMP '2016-12-31 13:30:15') hour;
 ```
 
-2. CURRENT_TIME()
+3. DATE_ADD()
 
-3. CURRENT_TIMEESTAMP()
+4. DATE_DIFF()
 
-4. EXTRACT()
+5. DATE_FORMAT()
 
-5. DATE_ADD()
+6. YEAR(), MONTH(), DAY()
 
-6. DATE_DIFF()
-
-7. DATE_FORMAT()
-
-8. YEAR(), MONTH(), DAY()
-
-9. TIMESTAMPDIFF()
+7. TIMESTAMPDIFF()
 
 10. STR_TO_DATE()
