@@ -570,7 +570,7 @@ VALUES
     (3601, 4500, 'Get on the call', 	'08/16/2022 00:00:00'),
     (2310, 4500, 'What's the status on this?', 	'07/10/2022 00:00:00'),
     (3601, 8752, 'Let's take this offline', 	'06/14/2022 00:30:00'),
-    (2520, 8520, 'Maybe it was done by the automation process.', 	'08/19/2022 00:00:00'),
+    (2520, 8520, 'Maybe it was done by the automation process.', 	'08/19/2022 00:00:00');
 ```
 
 1. CURRENT_DATE(), CURRENT_TIME(), 
@@ -601,7 +601,16 @@ SELECT EXTRACT(MINUTE FROM TIMESTAMP '2016-12-31 13:30:15') min;
 SELECT EXTRACT(HOUR FROM TIMESTAMP '2016-12-31 13:30:15') hour;
 ```
 
-3. DATE_ADD()
+3. TO_DATE()
+```
+SELECT 
+  sent_date,
+  sent_date::DATE AS casted_date,
+  TO_DATE('2023-08-27', 'YYYY-MM-DD') AS converted_to_date,
+  sent_date::TIMESTAMP AS casted_timestamp,
+  TO_TIMESTAMP('2023-08-27 10:30:00', 'YYYY-MM-DD HH:MI:SS') AS converted_to_timestamp
+FROM messages;
+```
 
 4. DATE_DIFF()
 
@@ -611,4 +620,4 @@ SELECT EXTRACT(HOUR FROM TIMESTAMP '2016-12-31 13:30:15') hour;
 
 7. TIMESTAMPDIFF()
 
-10. STR_TO_DATE()
+8. STR_TO_DATE()
